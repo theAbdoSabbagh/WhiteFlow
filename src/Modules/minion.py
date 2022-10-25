@@ -1,5 +1,6 @@
 from pyloggor import pyloggor
 from DisWrap.main import Client
+from typing import Literal
 import json
 import socket
 
@@ -22,20 +23,20 @@ class Minion:
         self.logger.log("DEBUG", "Boot Sequence", msg="Verifying token and account info", file="DisWrap:Client")
 
         account_info = self.dis_client.get_info()
-        if not account_info:
+        if account_info.code != 200:
             message = {"op": "0", "data": {"valid": False, "token": self.token}}
             self.sock.sendto(bytes(json.dumps(message), "utf-8"), self.handler_addr)
             return
 
+        data = json.loads(account_info.data)
         ws_message = {
             "op": "0",
-            "event": "IDENTIFY",
             "data": {
                 "valid": True,
                 "token": self.token,
-                "username": account_info["username"],
-                "id": account_info["id"],
-                "discriminator": account_info["discriminator"],
+                "username": data["username"],
+                "id": data["id"],
+                "discriminator": data["discriminator"],
             }
         }
 
