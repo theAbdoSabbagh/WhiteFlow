@@ -1,4 +1,5 @@
 from pyloggor import pyloggor
+from internals import DankInfoLive
 import socket
 import json
 
@@ -9,6 +10,8 @@ class Handler:
         self.config = config
         self.connections = {}
         self.local_websocket_port = self.config["handler_port"]
+
+        self.dank_info = DankInfoLive()
 
         self.boot()
 
@@ -35,13 +38,15 @@ class Handler:
 
     def message_handler(self, message, addr):
         message = json.loads(message.decode("UTF-8"))
-        if message["op"] == "0":
+        if message["op"] == 0:
             if message["data"]["valid"]:
                 self.connections[message["data"]["id"]] = addr
                 self.logger.log("INFO", "Local UDP Server", msg=f"Client {message['data']['id']} connected.", file="Handler")
             else:
                 self.logger.log("WARNIGN", "Local UDP Server", msg=f"Token: {message['data']['token']} is invalid.", file="Handler")
-
+        
+        elif message["op"] == 1:
+            self.dank_info.update(message["data"])
 
     def send(self, client: str, message: str) -> bool:
         if client not in self.connections.keys():

@@ -1,6 +1,7 @@
 {
     "batches": [
         {
+            "uuid": "b1",
             "config": {
                 "beg": true,
                 "beg_interval": 50
@@ -38,6 +39,7 @@
             ]
         },
         {
+            "uuid": "b2",
             "minions": [
                 {
                     "token": "",

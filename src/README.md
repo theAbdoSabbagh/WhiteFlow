@@ -12,6 +12,8 @@
 
 ### The OP Codes
 because I don't remember what I use at any given time
-- `0`- Event: `IDENTIFY`, data: valid, Token, Username, ID, Discriminator
-- `1`- Event: `UPDATE`, data: ... (A config update is pushed)
-- `2`- Event: `INTERRUPT`, data: ... (The flow is to be interrupted)
+- `0: IDENTIFY`. data: valid, Token, Username, ID, Discriminator
+- `1: UPDATE`. data: ... (A config update is pushed)
+- `2: INTERRUPT`. data: command_name (The flow is to be interrupted)
+- `3: KILL`. data: uuid (kills the account after current command, closes the flow)
+- `4: TERMINATE`. data: uuid (instantly kills the account even if there is an ongoing command)
