@@ -12,7 +12,7 @@ class Minion:
         self.logger = logger
 
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.handler_addr = ("localhost", config["handler_port"])
+        self.handler_addr = ("localhost", config["internal"]["handler_port"])
 
         self.dis_client = Client()
 

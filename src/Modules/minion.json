@@ -1,0 +1,18 @@
+{
+    "internal": {
+        "handler_port": 1111
+    },
+    "token": "...",
+    "channel_id": "...",
+    "start_at": {
+        "timezone": "GMT+00:00",
+        "time": "H:M:S"
+    },
+    "shifts": {
+        "...": "..."
+    },
+    "features": {
+        "beg": true,
+        "...": "..."
+    }
+}

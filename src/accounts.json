@@ -58,6 +58,10 @@
         "beg": false,
         "beg_interval": 60
     },
+    "start_at": {
+        "timezone": "GMT+01:00",
+        "time": "08:00:00"
+    },
     "shifts": {
         "timezone": "GMT+00:00",
         "shift_timings": [
