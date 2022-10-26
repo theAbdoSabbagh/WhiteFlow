@@ -1,10 +1,12 @@
 import faster_than_requests as requests
 from typing import Optional, TypeVar, Union
-from .Classes import Response
+from .Objects import Response
+from .ws import Gateway
 from pyloggor import pyloggor
 from string import printable
 
 T: TypeVar = Optional[Union[str, int]]
+
 
 class Client:
     def __init__(self, config, logger: pyloggor):
@@ -13,13 +15,16 @@ class Client:
         self.token = config["token"]
         self.logger = logger
 
-        self.session_id: Optional[str] = None
-    
+        self.gateway = Gateway(config, logger)
+        self.ws = self.gateway.ws
+
+        self.session_id: Optional[str] = self.gateway.session_id
+
 
     def _strip(self, content: str) -> str:
         return "".join([char for char in content if char in printable])
 
-    def tupalize(self, dict):
+    def _tupalize(self, dict):
         return [(a, b) for a, b in dict.items()]
 
 
@@ -54,7 +59,7 @@ class Client:
                     url="https://discord.com/api/v9/interactions",
                     http_headers=[("Authorization", self.token)],
                     body="",
-                    multipart_data=self.tupalize(payload)
+                    multipart_data=self._tupalize(payload)
                 )
             )
 
