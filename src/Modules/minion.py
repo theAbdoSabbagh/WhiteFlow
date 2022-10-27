@@ -1,5 +1,5 @@
 from pyloggor import pyloggor
-from DisWrap.main import Client
+from Disend.main import Client
 from typing import Literal
 import json
 import socket
@@ -26,7 +26,7 @@ class Minion:
 
 
     def __boot(self):
-        self.logger.log("DEBUG", "Boot Sequence", msg="Verifying token and account info", file="DisWrap:Client")
+        self.logger.log("DEBUG", "Boot Sequence", msg="Verifying token and account info", file="Disend:Client")
 
         account_info = self.dis_client.get_info()
         if account_info.code != 200:
