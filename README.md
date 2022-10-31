@@ -1,5 +1,4 @@
-
-
+![WhiteFlow](Assets/WhiteFlow.jpg "WhiteFlow")
 # WhiteFlow
 A CLI tool used to automate the currency commands of Dank Memer, allowing users to gain massive profits while doing nothing.
 
