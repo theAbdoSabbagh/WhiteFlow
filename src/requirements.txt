@@ -1,3 +1,0 @@
-pyloggor
-websocket_client
-git+https://github.com/ThePrivatePanda/Disend.git
