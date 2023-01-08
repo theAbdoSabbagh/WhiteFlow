@@ -1,0 +1,4 @@
+DankCord==0.0.2.5
+pyloggor==1.0.2
+rich==13.0.1
+toml==0.10.2
