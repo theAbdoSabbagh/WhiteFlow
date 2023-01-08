@@ -1,0 +1,30 @@
+["credentials"]
+token = ""
+channel_id = ""
+
+["miscellaneous"]
+premium = false
+postmemes-platform = ""
+postmemes-memetype = ""
+
+["options"."normal"]
+fish = false
+hunt = false
+beg = false
+
+["options"."button"]
+search = false
+crime = false
+
+["options"."powerup"]
+ammo = false
+taco = false
+pizza = false
+apple = false
+whiskey = false
+robbers_mask = false
+fishing_bait = false
+prestige_coin = false
+
+["options"."other"]
+postmemes = false
