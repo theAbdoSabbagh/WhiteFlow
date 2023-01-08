@@ -1,0 +1,23 @@
+["normal"]
+fish = 40
+hunt = 40
+dig = 40
+beg = 45
+deposit = 60
+crime = 45
+postmemes = 40
+search = 30
+trivia = 5
+highlow = 30
+
+["premium"]
+fish = 25
+hunt = 25
+dig = 25
+beg = 25
+deposit = 60
+crime = 15
+postmemes = 25
+search = 15
+trivia = 3
+highlow = 15
